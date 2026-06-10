@@ -3,15 +3,21 @@
     display: flex;
     align-items: flex-start;
     justify-content: flex-end;
+    z-index: 0;
 }
 
 .background{
     height: 100vh;
     position: absolute;
     left: -340px;
+    opacity: 0.1;
+    pointer-events: none;
+    z-index: 0;
 }
 
 .info{
+    position: relative;
+    z-index: 1;
     width: 60%;
     margin-right: 90px;
     margin-top: 45px;
@@ -27,6 +33,7 @@ input{
     background: transparent;
     font-size: 18px;
     padding: 10px;
+    color: #999999;
 }
 
 button{
@@ -37,6 +44,12 @@ button{
     color: #fff;
     font-size: 18px;
     padding: 10px;
+}
+
+button:hover {
+    background-color: #539bf5;
+    color: #1817179f;
+    cursor: pointer;
 }
 
 .dados-perfil{
