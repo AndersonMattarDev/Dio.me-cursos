@@ -14,12 +14,22 @@ export const ItemContainer = styled.div`
     margin-bottom: 20px;
   }
 
-  a.remover {
-    color: #ff0000;
+  a {
+    color: #fafafa;
+    text-decoration: none;
   }
 
   hr {
     color: #fafafa60;
     margin: 20px 0;
   }
+`;
+
+export const ActionButton = styled.button`
+  background: transparent;
+  border: none;
+  color: #ff0000;
+  cursor: pointer;
+  padding: 0;
+  margin-top: 8px;
 `;

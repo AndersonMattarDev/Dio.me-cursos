@@ -1,20 +1,26 @@
 import React from 'react'
-import { ItemContainer } from './styles';
+import { ItemContainer, ActionButton } from './styles';
 
- function ItemRepo() {
+function ItemRepo({ repo, handleRemoveRepo }) {
+
+const handleRemove = () => {
+  handleRemoveRepo(repo.id)
+}
+
   return (
-    <ItemContainer>
-        <h3>
-            Pablo
-        </h3>
-
-        <p>
-            Dio
-        </p>   
-        <a href="#">Ver Repositório</a> <br />
-        <a href="#" className='remover'>Remover</a>   
-        <hr />
+    <ItemContainer onClick={handleRemove}>
+      <h3>{repo.name || 'Repositório'}</h3>
+      <p>{repo.full_name || 'Sem Sobrenome'}</p>
+      <a href={repo.html_url} target="_blank" rel="noreferrer">
+        Ver Repositório
+      </a>
+      <br />
+      <ActionButton type="button" className="remover">
+        Remover
+      </ActionButton>
+      <hr />
     </ItemContainer>
   )
 }
+
 export default ItemRepo;
