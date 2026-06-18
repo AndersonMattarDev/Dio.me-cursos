@@ -8,19 +8,30 @@ export const ButtonContainer = styled.button`
     color: #FFFF;
     padding: 2px 12px;
     min-width: 120px;
-    width: 100%;
+
+    &:hover {
+
+        opacity: 0.5;
+        cursor: pointer;
+    }
 
     
     ${({variant}) => variant !== "primary" && css`
-        min-width: 167px;
-        height: 33px;
+        height: 30px;
+        max-width: 275px;
+        width: 100%;
 
         background: #E4105D;
 
+        &:hover{
+            opacity: 0.6;
+            cursor: pointer;
+        }
+
         &::affter {
-            content: "",
+            content: '';
             position: absolute;
-            border: #E4105D;
+            border: 1px solid #E4105D;
             top: -5px;
             left: -6px;
             width: calc(100%  + 10px);
