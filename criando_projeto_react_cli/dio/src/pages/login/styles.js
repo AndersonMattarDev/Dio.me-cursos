@@ -64,12 +64,12 @@ export const EsqueciText = styled.a`
 export const CriarText = styled.p`
   font-size: 14px;
   font-weight: 400;
-  color: #23dd7a;
+  color: #8139d3;
   margin-top: 8px;
   margin-left: 95px;
 
   a {
-    color: #23dd7a;
+    color: #8139d3;
     text-decoration: none;
     cursor: pointer;
 
