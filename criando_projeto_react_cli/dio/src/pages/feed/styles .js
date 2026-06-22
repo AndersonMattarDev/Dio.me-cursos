@@ -17,11 +17,12 @@ export const Title = styled.h3 `
     font-style: normal;
     font-weight: 700;
     font-size: 18px;
+    line-height: 25px;
     margin-bottom: 24px;
     color: #FFFFFF;
 `
 
-export const TitleHighLight = styled.span `
+export const TitleHighLight = styled.h3 `
    font-family: Open Sans;
    font-style: normal;
    font-weight: 700;
@@ -31,7 +32,7 @@ export const TitleHighLight = styled.span `
    margin-bottom: 24px;
 `
 
-export const Column = styled.p `
+export const Column = styled.div `
     flex:${({flex})=> flex};
     padding-right: 24px;
 `
