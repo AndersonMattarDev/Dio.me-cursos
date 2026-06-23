@@ -15,6 +15,8 @@ export const Container = styled.div`
   align-items: center;
 `;
 
+
+
 export const Column = styled.div`
   flex: 1;
   display: flex;
