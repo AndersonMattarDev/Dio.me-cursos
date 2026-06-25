@@ -2,12 +2,13 @@ import { useNavigate } from "react-router-dom";
 import { MdEmail, MdLock } from "react-icons/md";
 
 import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup"; 
-import * as yup from "yup"; 
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
 
 import { Button } from "../../components/Button";
 import { Header } from "../../components/Header";
 import { Input } from "../../components/Input";
+import { api } from "../../services/api";
 import {
   Column,
   Container,
@@ -20,13 +21,18 @@ import {
   Wrapper,
 } from "./styles";
 
-
 const schema = yup
   .object({
-    email: yup.string().email('Email não é valido!').required('Campo Obrigatório'),
-    password: yup.string().min(4,'No mínimo 4 caracteres').required('Campo Obrigatório'),
+    email: yup
+      .string()
+      .email("Email não é valido!")
+      .required("Campo Obrigatório"),
+    password: yup
+      .string()
+      .min(4, "No mínimo 4 caracteres")
+      .required("Campo Obrigatório"),
   })
-  .required()
+  .required();
 
 const Login = () => {
   const navigate = useNavigate();
@@ -34,18 +40,25 @@ const Login = () => {
   const {
     control,
     handleSubmit,
-    formState: { errors, isValid },
+    formState: { errors },
   } = useForm({
     resolver: yupResolver(schema),
-    mode: 'onChange',
+    mode: "onChange",
   });
 
-  console.log(isValid, errors);
-
-  const onSubmit = (data) => console.log(data);
-
-  const handleClickSignIn = () => {
-    navigate("/feed");
+  const onSubmit = async (FormData) => {
+    try {
+      const { data } = await api.get(
+        `/users?email=${FormData.email}&senha=${FormData.password}`,
+      );
+      if (data.length === 1) {
+        navigate("/feed");
+      } else {
+        alert("Email ou senha inválidos!");
+      }
+    } catch {
+      alert("Houve um erro..., tente novamente!");
+    }
   };
 
   return (
@@ -78,12 +91,7 @@ const Login = () => {
                 type="password"
                 leftIcon={<MdLock />}
               />
-              <Button
-                title="Entrar"
-                variant="secondary"
-               
-                type="submit"
-              />
+              <Button title="Entrar" variant="secondary" type="submit" />
             </form>
             <Row>
               <EsqueciText>Esqueci minha senha</EsqueciText>
