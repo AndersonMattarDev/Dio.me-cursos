@@ -1,16 +1,17 @@
 {
   "users": [
     {
-      "id": 0,
-      "name": "Anderson",
+      "name": "Anderson Moreno Mattar",
       "email": "andmat7745@gmail.com",
-      "senha": "Mattar367182@"
+      "senha": "Mattar367182@",
+      "id": "aC6hsLm1fhI"
     },
     {
-      "id": 1,
-      "name": "Lucas",
-      "email": "lucasdev@gmail.com",
-      "senha": "lucas123"
+      "name": "Lucas Davi Mattar",
+      "email": "lucasdavi@gmail.com",
+      "senha": "Lucas123",
+      "id": "tY_GveocfjA"
     }
-  ]
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }

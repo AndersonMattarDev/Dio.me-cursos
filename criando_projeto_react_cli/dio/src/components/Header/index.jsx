@@ -1,6 +1,7 @@
 import React from "react";
 import { Button } from "../Button";
 import logo from "../../assets/logo-dio.png";
+import { Link } from "react-router-dom";
 
 import {
   BuscarInputContainer,
@@ -18,7 +19,9 @@ const Header = ({ autenticado }) => {
     <Wrapper>
       <Container>
         <Row>
-          <img src={logo} alt="Logo da DIO" />
+          <Link to="/">
+            <img src={logo} alt="Logo da DIO" />
+          </Link>
           {autenticado ? (
             <>
               <BuscarInputContainer>
@@ -27,7 +30,7 @@ const Header = ({ autenticado }) => {
 
               <Menu>Live Code</Menu>
               <Menu>Global</Menu>
-            </>           
+            </>
           ) : null}
         </Row>
 
@@ -36,12 +39,12 @@ const Header = ({ autenticado }) => {
             <UserPicture src="https://avatars.githubusercontent.com/u/119048066?v=4&size=64" />
           ) : (
             <>
-            <MenuRight href="#">Home</MenuRight>
-            <Button title="Entrar" />
-            <Button title="Cadastrar" />
+              <MenuRight href="/">Home</MenuRight>
+              <Link to="/login"><Button title="Entrar" /></Link>
+              <Link to="/register"><Button title="Cadastrar" /></Link>
+              
             </>
           )}
-         
         </Row>
       </Container>
     </Wrapper>
