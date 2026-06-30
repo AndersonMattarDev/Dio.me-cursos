@@ -1,7 +1,7 @@
-import React from "react";
 import { Button } from "../Button";
 import logo from "../../assets/logo-dio.png";
 import { Link } from "react-router-dom";
+import { IHeader } from "./types"
 
 import {
   BuscarInputContainer,
@@ -14,7 +14,7 @@ import {
   Wrapper,
 } from "./styles";
 
-const Header = ({ autenticado }) => {
+const Header = ({autenticado}: IHeader) => {
   return (
     <Wrapper>
       <Container>
@@ -52,3 +52,4 @@ const Header = ({ autenticado }) => {
 };
 
 export { Header };
+//parei em 17:46 da aula 

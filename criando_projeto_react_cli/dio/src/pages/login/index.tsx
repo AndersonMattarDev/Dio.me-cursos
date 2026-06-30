@@ -1,9 +1,10 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { MdEmail, MdLock } from "react-icons/md";
 
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+
 
 import { Button } from "../../components/Button";
 import { Header } from "../../components/Header";
@@ -95,7 +96,7 @@ const Login = () => {
             </form>
             <Row>
               <EsqueciText>Esqueci minha senha</EsqueciText>
-              <CriarText>Criar conta</CriarText>
+              <CriarText><Link to='/register'>Criar conta</Link></CriarText>
             </Row>
           </Wrapper>
         </Column>

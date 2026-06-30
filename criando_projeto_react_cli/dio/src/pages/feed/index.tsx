@@ -1,7 +1,7 @@
 
 
 import { Header } from "../../components/Header";
-import { Container, Column, Title, TitleHighLight } from "./styles ";
+import { Container, Column, Title, TitleHighLight } from "./styles";
 import { Card } from "../../components/Card";
 import { UserInfo } from "../../components/UserInfo";
 

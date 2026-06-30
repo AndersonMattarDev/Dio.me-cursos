@@ -11,6 +11,12 @@
       "email": "lucasdavi@gmail.com",
       "senha": "Lucas123",
       "id": "tY_GveocfjA"
+    },
+    {
+      "name": "Luiz junior'",
+      "email": "luizinho@gmail.com",
+      "senha": "lulu123",
+      "id": "--NscvMsIK8"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
