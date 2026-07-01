@@ -1,9 +1,9 @@
-import React from "react";
+import { IInput } from "./types";
 
 import { IconContainer, InputContainer, InputText, ErrorText } from "./styles";
 import { Controller } from "react-hook-form";
 
-const Input = ({leftIcon , name,control,errorMessage, ...rest}) => {
+const Input = ({leftIcon , name,control,errorMessage, ...rest}: IInput) => {
  return (
      <> 
      <InputContainer>
@@ -12,8 +12,8 @@ const Input = ({leftIcon , name,control,errorMessage, ...rest}) => {
             name={name}
             control={control}
             rules={{required: true}}
-            render={({field }) => <InputText {...field} {...rest}/>}
-        />          
+            render={({field: {value, onChange}}) => (<InputText {...rest} value={value} onChange={onChange}/>)}
+        />              
     </InputContainer>
     {errorMessage ? <ErrorText>{errorMessage}</ErrorText> : null }
     </>
