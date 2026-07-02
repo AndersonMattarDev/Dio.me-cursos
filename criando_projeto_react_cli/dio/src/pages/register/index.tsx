@@ -22,6 +22,7 @@ import {
   FazerLogin,
   TenhoConta,
 } from "./styles";
+import { IRegisterFormData } from "./types";
 
 const schema = yup
   .object({
@@ -37,8 +38,9 @@ const schema = yup
       .string()
       .min(4, "No mínimo 4 caracteres")
       .required("Campo Obrigatório"),
+    id: yup.string().notRequired(),
   })
-  .required();
+  .required() as yup.ObjectSchema<IRegisterFormData>;
 
 const Register = () => {
   const navigate = useNavigate();
@@ -47,12 +49,12 @@ const Register = () => {
     control,
     handleSubmit,
     formState: { errors },
-  } = useForm({
+  } = useForm<IRegisterFormData>({
     resolver: yupResolver(schema),
     mode: "onChange",
   });
 
-  const onSubmit = async (formData) => {
+  const onSubmit = async (formData: IRegisterFormData) => {
     try {
       const { data } = await api.get(`/users?email=${formData.email}`);
   

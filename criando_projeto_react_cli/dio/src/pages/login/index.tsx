@@ -4,6 +4,7 @@ import { MdEmail, MdLock } from "react-icons/md";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import { IFormData } from "./types";
 
 
 import { Button } from "../../components/Button";
@@ -42,12 +43,12 @@ const Login = () => {
     control,
     handleSubmit,
     formState: { errors },
-  } = useForm({
+  } = useForm<IFormData>({
     resolver: yupResolver(schema),
     mode: "onChange",
   });
 
-  const onSubmit = async (FormData) => {
+  const onSubmit = async (FormData: IFormData) => {
     try {
       const { data } = await api.get(
         `/users?email=${FormData.email}&senha=${FormData.password}`,
